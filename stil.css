@@ -1,18 +1,27 @@
 table, tr, th, td {
   border: 1px solid black;
-  border-collapse: collapse;
-  
+  border-collapse: collapse;  
   font-weight:normal;
   font-family: Sans-Serif;
   text-align: center;
 }
+td, th {
+  padding: 10px 1px;
+}
 body {
+  -moz-tab-size: 16; /* Firefox */
+  tab-size: 16;
+  
   width: 370px;
   padding: 25px;
   overflow: hidden;
 }
 table {
+  table-layout: fixed;
   margin: 100px;
+}
+tr:hover {
+  border-width: 2px;
 }
 
 
