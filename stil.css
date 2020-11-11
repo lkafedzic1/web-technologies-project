@@ -12,7 +12,7 @@ body {
   -moz-tab-size: 16; /* Firefox */
   tab-size: 16;
   
-  width: 370px;
+  width: 350px;
   padding: 25px;
   overflow: hidden;
 }
