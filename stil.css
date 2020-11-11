@@ -1,0 +1,18 @@
+table, tr, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  
+  font-weight:normal;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+body {
+  width: 370px;
+  padding: 25px;
+  overflow: hidden;
+}
+table {
+  margin: 100px;
+}
+
+
