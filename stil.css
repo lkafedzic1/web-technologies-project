@@ -9,19 +9,58 @@ td, th {
   padding: 10px 1px;
 }
 body {
-  -moz-tab-size: 16; /* Firefox */
-  tab-size: 16;
-  
-  width: 350px;
-  padding: 25px;
   overflow: hidden;
 }
 table {
   table-layout: fixed;
-  margin: 100px;
+  margin: auto;
+  margin-top: 50px;
+  width: 50%;
+  
 }
 tr:hover {
   border-width: 2px;
 }
 
+/* 5. zad */
 
+.navbar{
+  position: relative;
+}
+
+ul {
+  border: 1px solid #e7e7e7;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  
+  font-family: Verdana, sans-serif;
+  font-size: 15px; 
+  line-height: 1.5;
+}
+
+ul li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a.active {
+  color: white;
+  background-color: #008CBA;
+}
+
+li {
+  float: left;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #ddd;
+}
