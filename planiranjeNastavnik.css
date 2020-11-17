@@ -13,10 +13,16 @@ form {
 
 input {
   width: 150px;
+  padding: 5px 10px;
+}
+
+#subject {
+  height: 20px;
 }
 
 select {
-  width: 175px;;
+  width: 175px;
+  height: 34px;
 }
 
 div {
@@ -29,6 +35,56 @@ label {
   font-size: 15px;
 }
 
-input {
-  padding: 5px 10px;
+@media only screen and (max-width: 600px) {
+form {
+display: table-caption;
+}
+
+div {
+ margin-bottom: 25px;
+ display: grid;
+}
+} 
+
+/* 5. zad */
+
+.navbar{
+  position: relative;
+}
+
+ul {
+  border: 1px solid #e7e7e7;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  
+  font-family: Verdana, sans-serif;
+  font-size: 15px; 
+  line-height: 1.5;
+}
+
+ul li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a.active {
+  color: white;
+  background-color: #008CBA;
+}
+
+li {
+  float: left;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #ddd;
 }
