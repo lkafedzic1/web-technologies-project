@@ -5,8 +5,6 @@ body{
   background-size: cover;
 }
 
-
-
 .side{
     border: 2px solid #647cb8;
     border-radius: 40px;
@@ -55,7 +53,6 @@ div{
     border: 1px solid #000;
     height: 400px;
     color: #4a6aaa;
-    font-weight: 700px;
  }
   
 .in {
@@ -92,8 +89,6 @@ ul {
   overflow: hidden;
   background-color: #f1f1f1;
   display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
   
   font-family: Verdana, sans-serif;
   font-size: 15px;
@@ -120,7 +115,6 @@ li {
 ul li a:hover:not(.active) {
   background-color: #ddd;
 }
-
 
 @media (max-width:600px) {
   #bef {
