@@ -100,10 +100,7 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: #f1f1f1;
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  
+  display: block;  
   font-family: Verdana, sans-serif;
   font-size: 15px; 
   line-height: 1.5;
@@ -131,9 +128,20 @@ ul li a:hover:not(.active) {
 }
 
 @media (max-width:600px) {
-table, table td, table tr, table th { display: block; text-align: left; } 
-  table th, table td { margin: 0; padding-left: 25px;  }
-  table td  { margin-left: 40px;list-style: square; display: list-item; padding-left: 0; }
+table, table td, table tr, table th {
+display: block;
+text-align: left; } 
+
+  table th, table td {
+margin: 0;
+padding-left: 25px;  }
+
+  table td  { 
+margin-left: 40px;
+list-style: square;
+display: list-item;
+padding-left: 0; }
+
   table thead { display: none; }
 
 .hours {
