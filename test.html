@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8" />
+   <title>Testiranje</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+   <link rel="stylesheet" href="raspored.css">
+   <style>
+   td{
+     border: 1px solid black;
+     height: 20px;
+     width: 20px;
+   }
+   </style>
+ </head>
+ <body>
+ <!-- <body onload="test()"> -->
+    <!-- <ul class="navbar">
+        <li><a class="active" href="./spirala2rasporedi.html">Raspored</a></li>
+        <li><a href="./aktivnost.html">Aktivnost</a></li>
+        <li><a href="./planiranjeNastavnik.html">Planiranje</a></li>
+        <li><a href="./podaciStudent.html">Podaci</a></li>
+    </ul> -->
+   <div id="ispis"></div>
+   <div id="ispis1"></div>
+   <div id="mocha"></div>
+ 
+   <script src="https://unpkg.com/chai/chai.js"></script>
+   <script src="https://unpkg.com/mocha/mocha.js"></script>
+ 
+   <script class="mocha-init">
+    mocha.setup('bdd');
+    mocha.checkLeaks();
+  </script>
+
+   <script src="iscrtajModul.js"></script>
+   <script src="test.js"></script>
+   <script class="mocha-exec">
+     mocha.run();
+   </script>
+ </body>
+</html>
