@@ -1,6 +1,6 @@
 
 function iscrtajRaspored(div, dani, satPocetak, satKraj) {
-    let s;
+    let s; 
     if (!(Number.isInteger(satPocetak) && Number.isInteger(satKraj))
         || satPocetak >= satKraj
         || !(satPocetak >= 0 && satPocetak <= 24)

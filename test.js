@@ -8,7 +8,7 @@ let assert = chai.assert;
         let raspored = rasporedi[0];
         let redovi = raspored.getElementsByTagName("tr");
         assert.equal(redovi.length, 2, "Broj redova treba biti 2");   
-    });
+    }); 
  });
  describe('iscrtajRaspored()', function() {
     it('treba nacrtati 6 redova, kada ima 5 dana', function() {

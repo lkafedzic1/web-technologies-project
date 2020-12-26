@@ -1,6 +1,6 @@
 var Raspored = (function () {
     var iscrtajKolone = function (s, satPocetak, satKraj) {
-        s += '<col span="8">';
+        s += '<col span="8">'; 
         for (let j = satPocetak; j < satKraj; j++) {
             s += '<colgroup';
             if (j % 2 == 0) {

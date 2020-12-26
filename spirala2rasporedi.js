@@ -1,7 +1,7 @@
 function test() {
     let okvir = document.getElementById("okvir");
     iscrtajRaspored(okvir, ["Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak"], 8, 21);
-
+ 
     var response = dodajAktivnost(okvir, "WT", "predavanje", 9, 12, "Ponedjeljak");
     if (response) alert(response);
     response = dodajAktivnost(okvir, "WT", "vježbe", 12, 13.5, "Ponedjeljak");
