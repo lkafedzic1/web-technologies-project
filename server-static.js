@@ -28,5 +28,6 @@ app.get('/test', (req,res) => {
     res.sendFile('./server-static/test.html', { root: __dirname});
 });
 
-//app.listen(3000);
-app.listen(port, () => console.log(`listening on port ${port}!`));
+//get metode su suvisne obzirom da imamo public direktorij
+
+app.listen(port, () => console.log("Listening on port ${port}!"));
