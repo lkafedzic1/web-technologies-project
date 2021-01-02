@@ -1,0 +1,25 @@
+{
+  "watch": {
+    "test": "*.js"
+  },
+  "name": "spirala",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://lkafedzic1@bitbucket.org/lkafedzic1/wt20p17845.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lkafedzic1/wt20p17845#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
+}

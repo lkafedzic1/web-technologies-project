@@ -1,0 +1,17 @@
+rg,vjezba,9:00,10:00,srijeda
+​ooi,tutorijal,11:00,12:00,ponedjeljak
+rg,vjezba,9:00,10:00,srijeda
+​ooi,tutorijal,11:00,12:00,ponedjeljak
+rg,vjezba,9:00,10:00,srijeda
+​ooi,tutorijal,11:00,12:00,ponedjeljak
+rg,vjezba,9:00,10:00,srijeda
+​ooi,tutorijal,11:00,12:00,ponedjeljak
+rg,vjezba,9:00,10:00,srijeda
+​ooi,tutorijal,11:00,12:00,ponedjeljak
+​ooi,tutorijal,8:00,15:00,Petak
+​ooi,tutorijal,15:00,16:00,Petak
+​ooi,tutorijal,16:00,16:00,Petak
+​ooi,tutorijal,16:00,17:00,Petak
+​ooi,tutorijal,13:00,17:00,Četvrtak
+​ooi,tutorijal,15:00,15:30,Utorak
+​ooi,tutorijal,15:30,16:30,Utorak
