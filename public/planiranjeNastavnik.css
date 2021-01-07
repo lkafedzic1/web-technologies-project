@@ -28,6 +28,10 @@ select {
 div {
   margin-bottom: 10px;
 }
+div #submitbtn {
+  margin-top: 20px;
+  float: right;
+}
 
 label {
   display: inline-block;

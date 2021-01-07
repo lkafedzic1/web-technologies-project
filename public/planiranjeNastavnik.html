@@ -9,6 +9,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Castoro&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- <script>
+    function ajax1(){
+       var ajax = new XMLHttpRequest();
+        ajax.onreadystatechange = function() {// Anonimna funkcija
+            if (ajax.readyState == 4 && ajax.status == 200)
+                document.getElementById("polje").innerHTML = ajax.responseText;
+            if (ajax.readyState == 4 && ajax.status == 404)
+                document.getElementById("polje").innerHTML = "Greska: nepoznat URL";
+        }
+        ajax.open("GET", "stranica1.html", true);
+        ajax.send();
+      }
+  </script> -->
+
 <ul class="navbar">
   <li><a href="./spirala2rasporedi.html">Raspored</a></li>
   <li><a href="./aktivnost.html">Aktivnost</a></li>
@@ -16,7 +31,7 @@
  <li><a href="./podaciStudent.html">Podaci</a></li>
 </ul>
 <div id="ar">
-<form>
+<form action="http://localhost:3000" method="post"> <!--je li dobar port-->
 <div>
 <label for="subject">Naziv predmeta:</label>
 <input type="text" id="subject" name="subject" placeholder="Naziv predmeta">
@@ -46,6 +61,9 @@
 <option value="thur">Četvrtak</option>
 <option value="fri">Petak</option>
 </select>
+</div>
+<div id="submitbtn">
+  <input type="submit" value="Sačuvaj">
 </div>
 </form>
 </div>

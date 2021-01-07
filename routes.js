@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-const port = 3005;
+const port = 3000;
 var fs = require('fs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,6 +39,9 @@ app.get('/aktivnosti', function (req, res) {
     });
 });
 
+//var reg = new RegExp('\/predmet\/:[a-zA-Z]{2,}[0-9]*\/aktivnost');
+//app.get('/predmet/:naziv/aktivnost', function (req, res) {
+
 app.get('/predmet/:naziv/aktivnost', function (req, res) {
     //vraća niz objekata aktivnosti za zadani predmet
     let aktivnostiPredmeta = [];
@@ -66,9 +69,14 @@ app.post('/predmet', function (req, res) {
     var predmetiReader = require('readline').createInterface({
         input: fs.createReadStream('predmeti.txt')
     });
+    var anyLines = false;
     predmetiReader.on('line', function (line) {
         if (line == nazivPredmeta) {
             postojiPredmet = true;
+        }
+
+        if(line) {
+            anyLines = true;
         }
     });
 
@@ -78,7 +86,7 @@ app.post('/predmet', function (req, res) {
             return;
         }
 
-        let novaLinija = "\n" + nazivPredmeta;
+        let novaLinija = (anyLines ? "\n" : "") + nazivPredmeta;
         fs.appendFile('predmeti.txt', novaLinija, function (err) {
             if (err) throw err;
             res.json({ message: "Uspješno dodan predmet!" });
@@ -90,9 +98,7 @@ app.post('/aktivnost', function (req, res) {
     let tijelo = req.body;
     try {
 
-        let novaLinija = "\n​" + tijelo['naziv'] + "," + tijelo['tip'] +
-            "," + tijelo['pocetak'] + "," + tijelo['kraj'] + "," + tijelo['dan'];
-
+       
         let vrijemePocetak = parseFloat(tijelo['pocetak'].replace(':00', '').replace(':30', '.5'));
         let vrijemeKraj = parseFloat(tijelo['kraj'].replace(':00', '').replace(':30', '.5'));
         let zadnjiSat = 20;
@@ -108,12 +114,12 @@ app.post('/aktivnost', function (req, res) {
         if ((vrijemePocetak < prviSat || vrijemePocetak > zadnjiSat)
             || (vrijemeKraj < prviSat || vrijemeKraj > zadnjiSat)
             || (vrijemeKraj <= vrijemePocetak)) {
-                // console.log('lose 1');
+                console.log('lose 1');
             isValid = false;
         }
 
         if (!validDani.some(validDan => validDan == dan)) {
-            // console.log('lose 2');
+            console.log('lose 2');
             isValid = false;
         }
 
@@ -130,7 +136,7 @@ app.post('/aktivnost', function (req, res) {
                     var krajAktivnosti = parseFloat(vrijednostiAktivnost[3].replace(':00', '').replace(':30', '.5'));
 
                     if (vrijemePocetak < krajAktivnosti && pocetakAktivnosti < vrijemeKraj) {
-                        // console.log('lose 3');
+                        console.log('lose 3');
                         isValid = false;
                     }
                 }
@@ -141,13 +147,19 @@ app.post('/aktivnost', function (req, res) {
                 return;
             }
 
+            let lineBreak = tekst ? "\n" : "";
+            let novaLinija = lineBreak + tijelo['naziv'] + "," + tijelo['tip'] +
+            "," + tijelo['pocetak'] + "," + tijelo['kraj'] + "," + tijelo['dan'];
+
+
             fs.appendFile('aktivnosti.txt', novaLinija, function (err) {
                 if (err) throw err;
-                res.json({ message: "Uspješno dodana aktivnost", data: novaLinija });
+                res.json({ message: "Uspješno dodana aktivnost!", data: novaLinija });
             });
         });
     }
     catch (e) {
+        console.log(e);
         res.json({ message: "Aktivnost nije validna!" });
     }
 });
@@ -168,7 +180,6 @@ app.delete('/aktivnost/:naziv', function (req, res) {
                     linije.splice(i, 1);
                 }
             }
-
             linije = linije.join("\n");
             fs.writeFile(fileName, linije, function (err) {
                 if (err) throw err;
@@ -224,3 +235,5 @@ app.delete('/all', function (req, res) {
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${ port }`)
 })
+
+module.exports = app;
