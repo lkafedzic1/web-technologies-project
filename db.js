@@ -27,7 +27,7 @@ db.tip = require(__dirname+'/tip.js')(sequelize, Sequelize.DataTypes);
 db.predmet.hasMany(db.grupa,{
     as:'grupePredmeta',
     foreignKey:{
-        name: 'grupaId',
+        //  name: 'grupaId_fk',
         allowNull:false
     }
 });
@@ -37,7 +37,7 @@ db.grupa.belongsTo(db.predmet);
 db.predmet.hasMany(db.aktivnost,{
     as:'aktivnostiPredmeta',
     foreignKey:{
-        name: 'predmetId',
+        //  name: 'predmetId_fk',
         allowNull:false
     }
 });
@@ -51,7 +51,7 @@ db.aktivnost.belongsTo(db.grupa);
 db.dan.hasMany(db.aktivnost,{
     as:'aktivnostiDana',
     foreignKey:{
-        name: 'danId',
+        //  name: 'danId_fk',
         allowNull:false
     }
 });
@@ -61,7 +61,7 @@ db.aktivnost.belongsTo(db.dan);
 db.tip.hasMany(db.aktivnost,{
     as:'aktivnostiTipa',
     foreignKey:{
-        name: 'aktivnostId',
+        //  name: 'aktivnostId_fk',
         allowNull:false
     }
 });

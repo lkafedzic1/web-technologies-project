@@ -2,18 +2,19 @@ module.exports = function(app) {
  
     const aktivnost = require('./aktivnost.controller.js');
  
-    // Create a new Customer
+    // Create a new Aktivnost
     app.post('/v1/aktivnost', aktivnost.create);
  
-    // Retrieve all Customer
+    // Retrieve all Aktivnost
     app.get('/v1/aktivnost', aktivnost.findAll);
  
-    // Retrieve a single Customer by Id
+    // Retrieve a single Aktivnost by Id
     app.get('/v1/aktivnost/:aktivnostId', aktivnost.findById);
  
-    // Update a Customer with Id
+    // Update a Aktivnost with Id
     app.put('/v1/aktivnost/:aktivnostId', aktivnost.update);
  
-    // Delete a Customer with Id
+    // Delete a Aktivnost with Id
     app.delete('/v1/aktivnost/:aktivnostId', aktivnost.delete);
+
 }

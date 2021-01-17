@@ -3,7 +3,6 @@ var app = express();
 db = require('./db.js');
 db.sequelize.sync({ force: true }); //then...? 
 const Aktivnost = db.aktivnost;
-const Student = db.student;
 
 //Post aktivnost
 exports.create = (req, res) => {	
@@ -11,7 +10,9 @@ exports.create = (req, res) => {
 	Aktivnost.create({  
         naziv: req.body.naziv,
         pocetak: req.body.pocetak,
-        kraj: req.body.kraj
+		kraj: req.body.kraj,
+		danId: req.body.danId,
+		aktivnostId: req.body.aktivnostId
 	}).then(aktivnost => {		
 		// Send created aktivnost to client
 		res.send(aktivnost);

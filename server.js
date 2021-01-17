@@ -10,7 +10,12 @@ db.sequelize.sync({ force: true }).then(() => {
     console.log('Drop and Resync with { force: true }');
 });
 
-require('./f_routes')(app);
+require('./aktivnost.routes.js')(app);
+require('./tip.routes.js')(app);
+require('./predmet.routes.js')(app);
+require('./dan.routes.js')(app);
+require('./student.routes.js')(app);
+require('./grupa.routes.js')(app);
 
 // Create a Server
 var server = app.listen(3000, function () {
