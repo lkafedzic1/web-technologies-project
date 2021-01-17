@@ -17,4 +17,5 @@ module.exports = function(app) {
     // Delete a Student with Id
     app.delete('/v2/student/:studentId', student.delete);
 
+    app.post('/v2/studentiGrupe', student.dodajStudente);
 }
