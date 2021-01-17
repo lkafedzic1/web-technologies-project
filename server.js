@@ -17,7 +17,7 @@ require('./student.routes.js')(app);
 require('./grupa.routes.js')(app);
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/studenti.html');
+    res.sendFile(__dirname + '/public/studenti.html');
 });
 
 // Create a Server
