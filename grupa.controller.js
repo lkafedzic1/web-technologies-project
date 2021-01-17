@@ -5,12 +5,28 @@ db.sequelize.sync({ force: true }); //then...?
 const Grupa = db.grupa;
 
 //Post grupa
-exports.findOrCreate = (req, res) => {	
+// exports.create = (req, res) => {	
+// 	// Save to MySQL database
+// 	db.predmet.create({naziv:req.body.naziv})
+// 	.then(p=>
+// 		{
+// 			Grupa.create({where: {
+// 				naziv: req.body.naziv,
+// 				predmet:p[0].id
+// 			}}).then(grupa => {		
+// 				// Send created grupa to client
+// 				res.send(grupa);
+// 			});
+// 		}
+// 	);
+// };
+exports.create = (req, res) => {	
 	// Save to MySQL database
-	Grupa.findOrCreate({  
-        naziv: req.body.naziv
+	Grupa.create({  
+		naziv: req.body.naziv,
+		predmetId: req.body.predmetId
 	}).then(grupa => {		
-		// Send findOrCreated grupa to client
+		// Send created grupa to client
 		res.send(grupa);
 	});
 };
@@ -33,7 +49,7 @@ exports.findById = (req, res) => {
 // Update a Grupa
 exports.update = (req, res) => {
 	const id = req.params.grupaId;
-	Grupa.update( {naziv: req.body.naziv}, 
+	Grupa.update( {naziv: req.body.naziv, predmetId: req.body.predmetId}, 
 					 { where: {id: req.params.grupaId} }
 				   ).then(() => {
 					 res.status(200).send("Uspješno ažurirana grupa id = " + id);

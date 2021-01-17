@@ -5,12 +5,12 @@ db.sequelize.sync({ force: true }); //then...?
 const Predmet = db.predmet;
 
 //Post predmet
-exports.findOrCreate = (req, res) => {	
+exports.create = (req, res) => {	
 	// Save to MySQL database
-	Predmet.findOrCreate({  
+	Predmet.create({  
         naziv: req.body.naziv
 	}).then(predmet => {		
-		// Send findOrCreated predmet to client
+		// Send created predmet to client
 		res.send(predmet);
 	});
 };
@@ -49,3 +49,13 @@ exports.delete = (req, res) => {
 	  res.status(200).send('Uspješno obrisan predmet id = ' + id);
 	});
 };
+
+//Delete all
+exports.delete =(req, res) => {
+	Predmet.destroy({
+		where: {},
+		truncate: true
+	}). then(() => {
+		res.status(200).send('Uspješno obrisane aktivnosti');
+	})
+}

@@ -1,0 +1,95 @@
+body {
+  background-color: #f2f2f2;
+}
+
+textarea {
+  margin-top: 20px;
+}
+
+form {
+ /* width: 50%;
+  margin-left: 25%;*/
+  padding: 100px;
+  text-align: left;
+  margin: auto;
+  display: table;
+}
+
+input {
+  width: 150px;
+  padding: 5px 10px;
+}
+
+#subject {
+  height: 20px;
+}
+
+select {
+  width: 175px;
+  height: 34px;
+}
+
+div {
+  margin-bottom: 10px;
+}
+div #submitbtn {
+  margin-top: 20px;
+  float: right;
+}
+
+label {
+  display: inline-block;
+  width: 110px;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+form {
+display: table-caption;
+}
+
+div {
+ margin-bottom: 25px;
+ display: grid;
+}
+} 
+
+/* 5. zad */
+
+.navbar{
+  position: relative;
+}
+
+ul {
+  border: 1px solid #e7e7e7;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  display: block;
+  font-family:  'Castoro', serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+ul li a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a.active {
+  color: white;
+  background-color: #008CBA;
+}
+
+li {
+  float: left;
+}
+
+ul li a:hover:not(.active) {
+  background-color: #ddd;
+}

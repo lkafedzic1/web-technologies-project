@@ -6,7 +6,7 @@ module.exports = function(app) {
     app.post('/v1/predmet', predmet.create);
  
     // Retrieve all predmets
-    app.get('/v1/predmet', predmet.findAll);
+    app.get('/v1/predmeti', predmet.findAll);
  
     // Retrieve single predmet by Id
     app.get('/v1/predmet/:predmetId', predmet.findById);
@@ -16,4 +16,8 @@ module.exports = function(app) {
  
     // Delete predmet with Id
     app.delete('/v1/predmet/:predmetId', predmet.delete);
+
+    //DELETE /all
+    app.delete('v1/predmeti', predmet.delete);
+
 }

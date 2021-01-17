@@ -5,12 +5,12 @@ db.sequelize.sync({ force: true }); //then...?
 const Dan = db.dan;
 
 //Post dan
-exports.findOrCreate = (req, res) => {	
+exports.create = (req, res) => {	
 	// Save to MySQL database
-	Dan.findOrCreate({  
+	Dan.create({  
         naziv: req.body.naziv
 	}).then(dan => {		
-		// Send findOrCreated dan to client
+		// Send created dan to client
 		res.send(dan);
 	});
 };

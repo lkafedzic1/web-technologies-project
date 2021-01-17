@@ -5,13 +5,13 @@ db.sequelize.sync({ force: true }); //then...?
 const Student = db.student;
 
 //Post student
-exports.findOrCreate = (req, res) => {	
+exports.create = (req, res) => {	
 	// Save to MySQL database
-	Student.findOrCreate({  
+	Student.create({  
 		ime: req.body.ime,
 		index: req.body.index
 	}).then(student => {		
-		// Send findOrCreated student to client
+		// Send created student to client
 		res.send(student);
 	});
 };

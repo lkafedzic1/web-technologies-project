@@ -5,9 +5,9 @@ db.sequelize.sync({ force: true }); //then...?
 const Aktivnost = db.aktivnost;
 
 //Post aktivnost
-exports.findOrCreate = (req, res) => {	
+exports.create = (req, res) => {	
 	// Save to MySQL database
-	Aktivnost.findOrCreate({  
+	Aktivnost.create({  
         naziv: req.body.naziv,
         pocetak: req.body.pocetak,
 		kraj: req.body.kraj,
@@ -36,7 +36,7 @@ exports.findById = (req, res) => {
 // Update a Aktivnost
 exports.update = (req, res) => {
 	const id = req.params.aktivnostId;
-	Aktivnost.update( {naziv: req.body.naziv, pocetak: req.body.pocetak, kraj: req.body.kraj}, 
+	Aktivnost.update( {naziv: req.body.naziv, pocetak: req.body.pocetak, kraj: req.body.kraj, danId: req.body.danId, aktivnostId: req.body.aktivnostId}, 
 					 { where: {id: req.params.aktivnostId} }
 				   ).then(() => {
 					 res.status(200).send("Uspješno ažurirana aktivnost id = " + id);
@@ -52,3 +52,13 @@ exports.delete = (req, res) => {
 	  res.status(200).send('Uspješno obrisana aktivnost id = ' + id);
 	});
 };
+
+//Delete all
+exports.deleteAll =(req, res) => {
+	Aktivnost.destroy({
+		where: {},
+		truncate: true
+	}). then(() => {
+		res.status(200).send('Uspješno obrisane aktivnosti');
+	})
+}

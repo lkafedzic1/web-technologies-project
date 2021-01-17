@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Unos studenta</title>
+  <link rel="stylesheet" type="text/css" href="forma.student.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <ul class="navbar">
+    <li><a href="./spirala2rasporedi.html">Raspored</a></li>
+    <li><a href="./aktivnost.html">Aktivnost</a></li>
+    <li><a class="active" href="./planiranjeNastavnik.html">Planiranje</a></li>
+    <li><a href="./podaciStudent.html">Podaci</a></li>
+  </ul>
+
+
+  <form action="/" method="POST">
+    <label for="unos">Unos:</label>
+    <textarea id="unos" name="unos" rows="10" cols="50">
+</textarea>
+    <label for="grupa">Odabir grupe</label>
+    <select id="grupa" name="grupa">
+      <option value="rma1">RMAgrupa1</option>
+      <option value="rma2">RMAgrup2</option>
+      <option value="wt1">WTgrupa1</option>
+      <option value="wt2">WTgrupa2</option>
+      <option value="rg1">RGgrupa1</option>
+      <option value="rg2">RGgrupa2</option>
+    </select>
+    <br><br>
+    <div id="submitbtn">
+      <input type="submit" value="Posalji">
+    </div>
+  </form>
+</body>
+
+</html>
