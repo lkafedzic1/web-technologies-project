@@ -5,16 +5,15 @@ db.sequelize.sync({ force: true }); //then...?
 const Aktivnost = db.aktivnost;
 
 //Post aktivnost
-exports.create = (req, res) => {	
+exports.findOrCreate = (req, res) => {	
 	// Save to MySQL database
-	Aktivnost.create({  
+	Aktivnost.findOrCreate({  
         naziv: req.body.naziv,
         pocetak: req.body.pocetak,
 		kraj: req.body.kraj,
 		danId: req.body.danId,
 		aktivnostId: req.body.aktivnostId
 	}).then(aktivnost => {		
-		// Send created aktivnost to client
 		res.send(aktivnost);
 	});
 };

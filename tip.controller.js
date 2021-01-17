@@ -5,12 +5,12 @@ db.sequelize.sync({ force: true }); //then...?
 const Tip = db.tip;
 
 //Post tip
-exports.create = (req, res) => {	
+exports.findOrCreate = (req, res) => {	
 	// Save to MySQL database
-	Tip.create({  
+	Tip.findOrCreate({  
         naziv: req.body.naziv
 	}).then(tip => {		
-		// Send created tip to client
+		// Send findOrCreated tip to client
 		res.send(tip);
 	});
 };

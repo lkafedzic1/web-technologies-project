@@ -5,12 +5,12 @@ db.sequelize.sync({ force: true }); //then...?
 const Grupa = db.grupa;
 
 //Post grupa
-exports.create = (req, res) => {	
+exports.findOrCreate = (req, res) => {	
 	// Save to MySQL database
-	Grupa.create({  
+	Grupa.findOrCreate({  
         naziv: req.body.naziv
 	}).then(grupa => {		
-		// Send created grupa to client
+		// Send findOrCreated grupa to client
 		res.send(grupa);
 	});
 };
