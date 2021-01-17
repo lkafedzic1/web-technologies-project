@@ -4,7 +4,7 @@ db = require('./db.js');
 db.sequelize.sync({ force: true }); //then...? 
 const Grupa = db.grupa;
 
-//Post grupa
+// Post grupa
 // exports.create = (req, res) => {	
 // 	// Save to MySQL database
 // 	db.predmet.create({naziv:req.body.naziv})
