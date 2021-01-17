@@ -14,28 +14,33 @@ const db = {};
 db.Sequelize = Sequelize;  
 db.sequelize = sequelize;
 
-//importi modela
-// db.aktivnost = sequelize.import(__dirname+'/aktivnost.js');
-// db.dan = sequelize.import(__dirname+'/dan.js');
-// db.grupa = sequelize.import(__dirname+'/grupa.js');
-// db.predmet = sequelize.import(__dirname+'/predmet.js');
-// db.student = sequelize.import(__dirname+'/student.js');
-// db.tip = sequelize.import(__dirname+'/tip.js');
+db.aktivnost = require(__dirname+'/aktivnost.js')(sequelize, Sequelize.DataTypes);
+db.dan = require(__dirname+'/dan.js')(sequelize, Sequelize.DataTypes);
+db.grupa = require(__dirname+'/grupa.js')(sequelize, Sequelize.DataTypes);
+db.predmet = require(__dirname+'/predmet.js')(sequelize, Sequelize.DataTypes);
+db.student = require(__dirname+'/student.js')(sequelize, Sequelize.DataTypes);
+db.tip = require(__dirname+'/tip.js')(sequelize, Sequelize.DataTypes);
 
-db.aktivnost = require(__dirname+'/aktivnost.js')(sequelize, Sequelize);
-db.dan = require(__dirname+'/dan.js')(sequelize, Sequelize);
-db.grupa = require(__dirname+'/grupa.js')(sequelize, Sequelize);
-db.predmet = require(__dirname+'/predmet.js')(sequelize, Sequelize);
-db.student = require(__dirname+'/student.js')(sequelize, Sequelize);
-db.tip = require(__dirname+'/tip.js')(sequelize, Sequelize);
 
 //relacije
 //Predmet 1-N Grupa
-db.predmet.hasMany(db.grupa,{foreignKey:{allowNull:false}});
+db.predmet.hasMany(db.grupa,{
+    as:'grupePredmeta',
+    foreignKey:{
+        name: 'grupaId',
+        allowNull:false
+    }
+});
 db.grupa.belongsTo(db.predmet);
 
 // Aktivnost ​ N-1​ Predmet
-db.predmet.hasMany(db.aktivnost,{foreignKey:{allowNull:false}});
+db.predmet.hasMany(db.aktivnost,{
+    as:'aktivnostiPredmeta',
+    foreignKey:{
+        name: 'predmetId',
+        allowNull:false
+    }
+});
 db.aktivnost.belongsTo(db.predmet);
 
 // Aktivnost ​ N-0​ Grupa
@@ -43,12 +48,24 @@ db.grupa.hasMany(db.aktivnost);
 db.aktivnost.belongsTo(db.grupa);
 
 // Aktivnost ​ N-1​ Dan
-db.dan.hasMany(db.aktivnost,{foreignKey:{allowNull:false}});
+db.dan.hasMany(db.aktivnost,{
+    as:'aktivnostiDana',
+    foreignKey:{
+        name: 'danId',
+        allowNull:false
+    }
+});
 db.aktivnost.belongsTo(db.dan);
 
 // Aktivnost ​ N-1​ Tip
-db.dan.hasMany(db.aktivnost,{foreignKey:{allowNull:false}});
-db.aktivnost.belongsTo(db.dan);
+db.tip.hasMany(db.aktivnost,{
+    as:'aktivnostiTipa',
+    foreignKey:{
+        name: 'aktivnostId',
+        allowNull:false
+    }
+});
+db.aktivnost.belongsTo(db.tip);
 
 // Student ​ N-M​ Grupa
 db.studentGrupa = db.grupa.belongsToMany(db.student,{as:'studenti',through:'student_grupa',foreignKey:'grupaId'});

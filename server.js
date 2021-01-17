@@ -10,7 +10,7 @@ db.sequelize.sync({ force: true }).then(() => {
     console.log('Drop and Resync with { force: true }');
 });
 
-require('./crud_routes.js')(app);
+require('./f_routes')(app);
 
 // Create a Server
 var server = app.listen(3000, function () {
@@ -19,6 +19,5 @@ var server = app.listen(3000, function () {
     var port = server.address().port
 
     console.log(`Example app listening at http://localhost:${ port }`)
-})
-
+});
 

@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 module.exports = function(sequelize,DataTypes){
     const Grupa = sequelize.define("grupa",{
         grupaId: {
-            type:sequelize.INTEGER,
+            type:Sequelize.INTEGER,
             primarykey:true,
             autoincrement:true
         },

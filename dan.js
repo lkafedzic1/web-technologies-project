@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 module.exports = function(sequelize,DataTypes){
     const Dan = sequelize.define("dan",{
         danId: {
-            type:sequelize.INTEGER,
+            type:Sequelize.INTEGER,
             primarykey:true,
             autoincrement:true
         },

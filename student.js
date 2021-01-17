@@ -3,7 +3,7 @@ const Sequelize = require("sequelize");
 module.exports = function(sequelize,DataTypes){
     const Student = sequelize.define("student",{
         studentId: {
-            type:sequelize.integer,
+            type:Sequelize.INTEGER,
             primarykey:true,
             autoincrement:true
         },
